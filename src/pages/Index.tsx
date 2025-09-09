@@ -6,6 +6,11 @@ import { BookingInterface } from "@/components/BookingInterface";
 import { DriverDashboard } from "@/components/DriverDashboard";
 import { DemandVisualization } from "@/components/DemandVisualization";
 import { AnalyticsDashboard } from "@/components/AnalyticsDashboard";
+import { LiveTracking } from "@/components/LiveTracking";
+import { RideSharing } from "@/components/RideSharing";
+import { Gamification } from "@/components/Gamification";
+import { SmartNotifications } from "@/components/SmartNotifications";
+import { PaymentInterface } from "@/components/PaymentInterface";
 import { Navigation, MapPin, TrendingUp, Users, Clock, DollarSign } from "lucide-react";
 import heroImage from "@/assets/hero-transport.jpg";
 
@@ -91,11 +96,16 @@ const Index = () => {
       <section className="py-16">
         <div className="container">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-4">
-              <TabsTrigger value="booking">Student Booking</TabsTrigger>
-              <TabsTrigger value="driver">Driver Dashboard</TabsTrigger>
-              <TabsTrigger value="demand">Live Demand</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-4 lg:grid-cols-9 gap-1">
+              <TabsTrigger value="booking">Booking</TabsTrigger>
+              <TabsTrigger value="tracking">Live Track</TabsTrigger>
+              <TabsTrigger value="carpool">Carpool</TabsTrigger>
+              <TabsTrigger value="payment">Payment</TabsTrigger>
+              <TabsTrigger value="driver">Driver</TabsTrigger>
+              <TabsTrigger value="demand">Demand</TabsTrigger>
               <TabsTrigger value="analytics">Analytics</TabsTrigger>
+              <TabsTrigger value="rewards">Rewards</TabsTrigger>
+              <TabsTrigger value="alerts">Alerts</TabsTrigger>
             </TabsList>
             
             <TabsContent value="booking" className="mt-8">
@@ -110,8 +120,28 @@ const Index = () => {
               <DemandVisualization />
             </TabsContent>
             
+            <TabsContent value="tracking" className="mt-8">
+              <LiveTracking />
+            </TabsContent>
+            
+            <TabsContent value="carpool" className="mt-8">
+              <RideSharing />
+            </TabsContent>
+            
+            <TabsContent value="payment" className="mt-8">
+              <PaymentInterface />
+            </TabsContent>
+            
             <TabsContent value="analytics" className="mt-8">
               <AnalyticsDashboard />
+            </TabsContent>
+            
+            <TabsContent value="rewards" className="mt-8">
+              <Gamification />
+            </TabsContent>
+            
+            <TabsContent value="alerts" className="mt-8">
+              <SmartNotifications />
             </TabsContent>
           </Tabs>
         </div>

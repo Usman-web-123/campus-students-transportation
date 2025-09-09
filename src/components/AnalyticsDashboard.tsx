@@ -222,7 +222,7 @@ export const AnalyticsDashboard = () => {
                       outerRadius={100}
                       fill="#8884d8"
                       dataKey="rides"
-                      label={({ percentage }) => `${percentage}%`}
+                      label={({ percent }: any) => `${Math.round(percent)}%`}
                     >
                       {popularDestinations.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
